@@ -421,3 +421,7 @@ Small Device Styles
   }
 
 }
+
+input {
+  margin: 5px;
+}
