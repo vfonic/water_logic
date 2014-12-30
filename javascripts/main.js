@@ -86,13 +86,21 @@ $(function() {
         $('input[name="maxes[]"]').each(function() {
             maxes[i++] = +$(this).val();
         });
+
+        var cap = [];
+        i = 0;
+        $('input[name="cap[]"]').each(function() {
+            cap[i++] = +$(this).val();
+        });
         
         var scale = $('input[name="scale"]:checked').length;
+        var source = $('input[name="source"]:checked').length;
+        var sink = $('input[name="sink"]:checked').length;
         var goal = +$('input[name="goal"]').val();
         var which = +$('input[name="glass"]').val();
 
         man = Module.cwrap('solve', 'number', ['number']);
-        man(5, scale, maxes[0], maxes[1], maxes[2], maxes[3], maxes[4], goal, which);
+        man(scale, source, sink, goal, which, cap[0], maxes[0], cap[1], maxes[1], cap[2], maxes[2], cap[3], maxes[3], cap[4], maxes[4]);
 
         $("#result").html($("#output").val().replace(/\r\n|\r|\n/g,"<br />")).slideDown();
     });
