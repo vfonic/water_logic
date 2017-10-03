@@ -10,3 +10,5 @@ This is the command to run to cross-compile cpp to javascript:
 `emcc water.cpp -o water.html -s EXPORTED_FUNCTIONS="['_solve']" -s NO_EXIT_RUNTIME=1`
 
 Then replace `water.js` from project.
+
+
